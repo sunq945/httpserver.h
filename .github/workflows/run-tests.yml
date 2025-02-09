@@ -20,4 +20,4 @@ jobs:
       run: make
     - name: show parser.c
       run:
-       cat src/parser.c
+       cat src/CMakeFiles/httpsrv.dir/parser.c

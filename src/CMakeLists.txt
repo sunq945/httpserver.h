@@ -49,9 +49,9 @@ add_custom_command(
 )
 
 add_custom_command(
-    COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c   # 执行的命令
-    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parser.c       # 依赖文件，文件修改后会重新执行该命令
-    VERBATIM                               # 保证命令参数按原样传递
+  POST_BUILD
+  COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c 
+  COMMENT "Printing content of ${CMAKE_CURRENT_BINARY_DIR}/parser.c
 )
 
 target_include_directories(

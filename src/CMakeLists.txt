@@ -48,6 +48,12 @@ add_custom_command(
   DEPENDS parser.rl
 )
 
+add_custom_command(
+    COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c   # 执行的命令
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parser.c       # 依赖文件，文件修改后会重新执行该命令
+    VERBATIM                               # 保证命令参数按原样传递
+)
+
 target_include_directories(
   httpsrv
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}

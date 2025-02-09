@@ -45,13 +45,8 @@ endif()
 add_custom_command(
   OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/parser.c
   COMMAND ${RAGEL} ${CMAKE_CURRENT_SOURCE_DIR}/parser.rl -o ${CMAKE_CURRENT_BINARY_DIR}/parser.c
+  COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c
   DEPENDS parser.rl
-)
-
-add_custom_command(
-  POST_BUILD
-  COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c 
-  COMMENT "Printing content of ${CMAKE_CURRENT_BINARY_DIR}/parser.c
 )
 
 target_include_directories(

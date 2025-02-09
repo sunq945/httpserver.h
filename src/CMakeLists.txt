@@ -48,10 +48,14 @@ add_custom_command(
   COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c
   DEPENDS parser.rl
 )
+
 add_custom_command(
-  httpsrv
-  PRE_BUILD
-  COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c
+    TARGET httpsrv
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E echo "Successfully generated parser.c:"
+    COMMAND ${CMAKE_COMMAND} -E cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parser.c
+    COMMENT "Printing the contents of parser.c"
 )
 
 target_include_directories(

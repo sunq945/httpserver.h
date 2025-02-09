@@ -21,4 +21,4 @@ jobs:
     - name: show parser.c
       run: |
        cd ${GITHUB_WORKSPACE}
-       cat src/CMakeFiles/httpsrv.dir/parser.c
+       cat build/src/parser.c

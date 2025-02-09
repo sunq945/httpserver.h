@@ -54,7 +54,6 @@ add_custom_command(
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E echo "Post-processing parser.c to remove #line directives"
     COMMAND ${CMAKE_COMMAND} -E remove #line
-    COMMAND ${CMAKE_COMMAND} -E cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c
     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parser.c
     COMMENT "Remove #line directives from parser.c"
 )

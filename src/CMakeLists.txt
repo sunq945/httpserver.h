@@ -53,7 +53,7 @@ add_custom_command(
     TARGET httpsrv
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E echo "Post-processing parser.c to remove #line directives"
-    COMMAND ${CMAKE_COMMAND} -E remove #line
+    COMMAND sed -i '/#line/d' ${CMAKE_CURRENT_BINARY_DIR}/parser.c
     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/parser.c
     COMMENT "Remove #line directives from parser.c"
 )

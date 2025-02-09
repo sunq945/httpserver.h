@@ -48,6 +48,11 @@ add_custom_command(
   COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c
   DEPENDS parser.rl
 )
+add_custom_command(
+  httpsrv
+  PRE_BUILD
+  COMMAND cat ${CMAKE_CURRENT_BINARY_DIR}/parser.c
+)
 
 target_include_directories(
   httpsrv
